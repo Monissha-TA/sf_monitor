@@ -108,4 +108,10 @@ tables:
         data_type: TIMESTAMP_NTZ
         sample_values:
           - '2025-04-24T11:56:13.946000000'
-custom_instructions: "Apply 'Yes' or 'No' filter on column ACTION_TAKEN"
+verified_queries:
+  - name: "Action Taken"
+    question: "How many actions are taken"
+    verified_at: 
+    verified_by: Monissha
+    sql: "WITH __monitoring_results AS (SELECT action_taken, rule_run_timestamp FROM MONITORING_RESULTS) SELECT COUNT(*) AS alert_count FROM __monitoring_results WHERE action_taken = 'Yes'"
+custom_instructions: "If a filter is applied on column ACTION_TAKEN, ensure that filters are either Yes or No"
