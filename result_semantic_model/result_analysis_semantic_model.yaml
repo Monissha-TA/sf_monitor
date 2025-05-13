@@ -87,7 +87,8 @@ tables:
       - name: ACTION_TAKEN
         synonyms:
           - '  ' # <FILL-OUT>
-        description: Indicator of whether an action was taken in response to a monitoring event. if the action is taken the value will be Yes and if no action is taken the value will be No        expr: ACTION_TAKEN
+        description: Indicator of whether an action was taken in response to a monitoring event. if the action is taken the value will be Yes and if no action is taken the value will be No
+        expr: ACTION_TAKEN
         data_type: TEXT
         sample_values:
           - No
@@ -108,6 +109,17 @@ tables:
         data_type: TIMESTAMP_NTZ
         sample_values:
           - '2025-04-24T11:56:13.946000000'
+    filters:
+    - name: ANY ACTION TAKEN
+      synonyms:
+        - ' '
+      description: "A filter to retrieve IF ANY ACTION TAKEN "
+      expr: ACTION_TAKEN = "Yes"
+    - name: NO ACTION TAKEN 
+      synonyms:
+        - ' '
+      description: "A filter to retrieve NO ACTION TAKEN "
+      expr: ACTION_TAKEN = "No"
 verified_queries:
   - name: "Action Taken"
     question: "How many actions are taken"
