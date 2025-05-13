@@ -86,7 +86,7 @@ tables:
           - You have logged more than once
       - name: ACTION_TAKEN
         synonyms:
-          - '  ' # <FILL-OUT>
+          - 'ACTION TAKEN' # <FILL-OUT>
         description: Indicator of whether an action was taken in response to a monitoring event. if the action is taken the value will be Yes and if no action is taken the value will be No
         expr: ACTION_TAKEN
         data_type: TEXT
@@ -114,12 +114,12 @@ tables:
       synonyms:
         - ' '
       description: "A filter to retrieve IF ANY ACTION TAKEN "
-      expr: ACTION_TAKEN = "Yes"
+      expr: ACTION_TAKEN = 'Yes'
     - name: NO ACTION TAKEN 
       synonyms:
         - ' '
       description: "A filter to retrieve NO ACTION TAKEN "
-      expr: ACTION_TAKEN = "No"
+      expr: ACTION_TAKEN = 'No'
 verified_queries:
   - name: "Action Taken"
     question: "How many actions are taken"
