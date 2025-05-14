@@ -84,8 +84,8 @@ tables:
         sample_values:
           - Lesser than credit limit
           - You have logged more than once
-      - name: action_taken_indicator
-        description: If any action taken the value is Yes and when no action taken the value is No
+      - name: action_taken_details
+        description: The column takes 'Yes' for any action taken and 'No' for no action
         expr: ACTION_TAKEN
         data_type: TEXT
         sample_values:
@@ -110,13 +110,13 @@ tables:
     filters:
     - name: action_taken_yes
       description: A filter to retrieve IF ANY ACTION TAKEN
-      expr: action_taken_indicator = 'Yes'
+      expr: action_taken_details = 'Yes'
     - name: action_taken_no 
       description: A filter to retrieve NO ACTION TAKEN
-      expr: action_taken_indicator = 'No'
+      expr: action_taken_details = 'No'
 verified_queries:
   - name: How many actions are taken
     question: How many actions are taken
     verified_by: Monissha
     sql: "WITH __monitoring_results AS (SELECT action_taken, rule_run_timestamp FROM MONITORING_RESULTS) SELECT COUNT(*) AS alert_count FROM __monitoring_results WHERE action_taken = 'Yes'"
-custom_instructions: "If a filter is applied on column ACTION_TAKEN, ensure that filters are either Yes or No and not true and false"
+custom_instructions: "If a filter is applied on column ACTION_TAKEN, use either 'Yes' or 'No' to pass as filter values"
