@@ -93,7 +93,7 @@ tables:
         sample_values:
           - No
           - Yes
-        is_enum: True
+        is_enum: true
       - name: RESOURCE_NAME
         synonyms:
           - '  ' # <FILL-OUT>
@@ -121,5 +121,6 @@ verified_queries:
   - name: How many actions are taken
     question: How many actions are taken
     verified_by: Monissha
+    use_as_onboarding_question: true
     sql: "WITH __monitoring_results AS (SELECT action_taken, rule_run_timestamp FROM MONITORING_RESULTS) SELECT COUNT(*) AS alert_count FROM __monitoring_results WHERE action_taken = 'Yes'"
 custom_instructions: "If a filter is applied on column ACTION_TAKEN, ensure that filters are either Yes or No"
