@@ -85,14 +85,13 @@ tables:
           - Lesser than credit limit
           - You have logged more than once
       - name: action_taken_indicator
-        description: Indicator of whether an action was taken in response to a monitoring event
+        description: If any action taken the value is Yes and when no action taken the value is No
         expr: ACTION_TAKEN
         data_type: TEXT
         sample_values:
           - Yes
           - No
-        is_enum: true
-      - name: RESOURCE_NAME
+        name: RESOURCE_NAME
         synonyms:
           - '  ' # <FILL-OUT>
         description: Name of the monitored resource. Based on the type of monitoring this could be a User, or Warehouse or Tables
